@@ -378,7 +378,4 @@ if [ "$haveSslConfig" ] && [ -f "$combinedSsl" ]; then
 	export RABBITMQ_CTL_ERL_ARGS="${RABBITMQ_CTL_ERL_ARGS:-} $sslErlArgs"
 fi
 
-# Enable the k8s discovery plugin
-rabbitmq-plugins --offline enable rabbitmq_peer_discovery_k8s
-
 exec "$@"

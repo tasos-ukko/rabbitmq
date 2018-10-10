@@ -88,6 +88,9 @@ RUN ln -sf /var/lib/rabbitmq/.erlang.cookie /root/
 
 RUN ln -sf "$RABBITMQ_HOME/plugins" /plugins
 
+# Enable plugins
+RUN rabbitmq-plugins enable --offline rabbitmq_peer_discovery_k8s rabbitmq-management
+
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
